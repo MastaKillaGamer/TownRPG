@@ -1,9 +1,7 @@
 package com.townrpg.core;
 
-import com.townrpg.core.display.Display;
-
 public class Main {
     public static void main(String[] args) {
-        new Display("Title", 300,300);
+        new Game("TownRPG", 1280, 720 );
     }
 }
