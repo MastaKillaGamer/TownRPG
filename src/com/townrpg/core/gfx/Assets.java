@@ -6,7 +6,7 @@ public class Assets {
     private static final int width = 32, height = 32;
     private static final int width2 = 48, height2 = 48;
 
-    public static BufferedImage player, enemy, grass, sand, dirt, water, gravel;
+    public static BufferedImage player, enemy, grass, sand, dirt, water, gravel, snow, stone, tree;
 
     public static void init(){
         SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/Sprites.png"));
@@ -19,9 +19,9 @@ public class Assets {
         dirt = sheet.crop(2, 0, width, height);
         water = sheet.crop(3, 0, width, height);
         gravel = sheet.crop(4, 0, width, height);
-        //snow
-        //stone
-        //trees
+        snow = sheet.crop(5, 0, width, height);
+        stone = sheet.crop(6, 0, width, height);
+        tree = sheet.crop(0, 1, width, height * 2);
     }
 
 }

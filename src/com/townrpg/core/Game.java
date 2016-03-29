@@ -85,7 +85,7 @@ public class Game implements Runnable {
         while(artdraw){
             k=l*32;
             j=h*32;
-            g.drawImage(Assets.sand,k,j, null);
+            g.drawImage(Assets.grass,k,j, null);
             if(l==40){
                 h++;
                 l=-1;
@@ -108,9 +108,10 @@ public class Game implements Runnable {
         if(x == 0 && !moob){
             y--;
         }
-        if(y == 0 && x == 0 && !moob)
+        if(y == 0 && x == 0 && !moob) {
             moob = true;
             job = false;
+        }
         //Draw End
         bs.show();
         g.dispose();
@@ -172,6 +173,3 @@ public class Game implements Runnable {
     }
 
 }
-
-/*
-*/
