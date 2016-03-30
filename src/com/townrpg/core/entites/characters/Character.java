@@ -4,10 +4,62 @@ import com.townrpg.core.entites.Entity;
 
 public abstract class Character extends Entity{
 
-    protected int health;
+    public static final int DEFAULT_HEALTH = 100;
+    public static final int DEFAULT_CHARACTER_WIDTH = 48, DEFAULT_CHARACTER_HEIGHT = 48;
+    public static final float DEFAULT_SPEED = 3.0f;
 
-    public Character(float x, float y){
-        super(x, y);
-        health = 10;
+    protected int health;
+    protected float speed;
+    protected float xMove, yMove;
+
+    public Character(float x, float y, int width, int height){
+        super(x, y, width, height);
+        health = DEFAULT_HEALTH;
+        speed = DEFAULT_SPEED;
+        xMove = 0;
+        yMove = 0;
+    }
+
+    public void move(){
+        x += xMove;
+        y += yMove;
+    }
+
+    //Gets
+
+
+    public float getxMove() {
+        return xMove;
+    }
+
+    public float getyMove() {
+        return yMove;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    //Sets
+
+
+    public void setxMove(float xMove) {
+        this.xMove = xMove;
+    }
+
+    public void setyMove(float yMove) {
+        this.yMove = yMove;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

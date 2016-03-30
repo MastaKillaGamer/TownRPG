@@ -10,21 +10,29 @@ public class Player extends Character {
     private Game game;
 
     public Player(Game game, float x, float y){
-        super(x, y);
+        super(x, y, Character.DEFAULT_CHARACTER_WIDTH, Character.DEFAULT_CHARACTER_HEIGHT);
         this.game = game;
     }
 
     @Override
     public void tick(){
-        if(game.getKeyManager().up)
-            y -= 3;
-        if(game.getKeyManager().down)
-            y += 3;
-        if(game.getKeyManager().left)
-            x -= 3;
-        if(game.getKeyManager().right)
-            x += 3;
+        getInput();
+        move();
 
+    }
+
+    private void getInput(){
+        xMove = 0;
+        yMove = 0;
+
+        if(game.getKeyManager().up)
+            yMove = -speed;
+        if(game.getKeyManager().down)
+            yMove = speed;
+        if(game.getKeyManager().left)
+            xMove = -speed;
+        if(game.getKeyManager().right)
+            xMove = speed;
     }
 
     @Override

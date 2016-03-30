@@ -9,6 +9,7 @@ public class Assets {
     public static BufferedImage player, enemy, grass, sand, dirt, water, gravel, snow, stone, tree;
 
     public static void init(){
+        //// FIXME: 3/29/2016 
         SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/Sprites.png"));
         SpriteSheet sheet2 = new SpriteSheet(ImageLoader.LoadImage("/textures/Sprites2.png"));
 
