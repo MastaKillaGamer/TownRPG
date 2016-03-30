@@ -1,7 +1,5 @@
 package com.townrpg.core;
 
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
 import com.townrpg.core.display.Display;
 import com.townrpg.core.gfx.Assets;
 import com.townrpg.core.inputs.KeyManager;
@@ -9,25 +7,26 @@ import com.townrpg.core.states.GameState;
 import com.townrpg.core.states.MenuState;
 import com.townrpg.core.states.State;
 
+import java.awt.*;
+import java.awt.image.BufferStrategy;
+
 public class Game implements Runnable {
 
-    private Display display;
     public int width, height;
     public String title;
-
+    int x = 0;
+    int y = 0;
+    private int setfps;
+    private Display display;
     private boolean running = false;
     private Thread thread;
-
     private BufferStrategy bs;
     private Graphics g;
-
     //States
     private State gameState;
     private State menuState;
-
     //Input
     private KeyManager keyManager;
-
     private int j;
     private int k;
     private int h;
@@ -35,10 +34,11 @@ public class Game implements Runnable {
     private boolean moob = true;
     private boolean job = false;
 
-    public Game(String title, int width, int height) {
+    public Game(String title, int width, int height, int setfps) {
         this.width = width;
         this.height = height;
         this.title = title;
+        this.setfps = setfps;
         keyManager = new KeyManager();
 
     }
@@ -53,9 +53,6 @@ public class Game implements Runnable {
         State.setState(gameState);
 
     }
-
-    int x = 0;
-    int y = 0;
 
     private void tick() {
         keyManager.tick();
@@ -120,7 +117,7 @@ public class Game implements Runnable {
     public void run(){
         init();
 
-        int fps = 60;
+        int fps = setfps;
         double timePerTick = 1000000000 / fps;
         double delta = 0;
         long now;
