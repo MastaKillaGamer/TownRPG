@@ -2,20 +2,21 @@ package com.townrpg.core;
 
 import com.townrpg.core.display.Display;
 import com.townrpg.core.gfx.Assets;
+import com.townrpg.core.gfx.SpriteSheet;
 import com.townrpg.core.inputs.KeyManager;
 import com.townrpg.core.states.GameState;
 import com.townrpg.core.states.MenuState;
 import com.townrpg.core.states.State;
+import com.townrpg.core.tile.Tiles;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {
 
+    public static SpriteSheet tileSprites;
     public int width, height;
     public String title;
-    int x = 0;
-    int y = 0;
     private int setfps;
     private Display display;
     private boolean running = false;
@@ -27,12 +28,6 @@ public class Game implements Runnable {
     private State menuState;
     //Input
     private KeyManager keyManager;
-    private int j;
-    private int k;
-    private int h;
-    private int l;
-    private boolean moob = true;
-    private boolean job = false;
 
     public Game(String title, int width, int height, int setfps) {
         this.width = width;
@@ -59,9 +54,6 @@ public class Game implements Runnable {
 
         if(State.getState() != null)
             State.getState().tick();
-        if(moob)
-            x+=1;
-
     }
 
     private void render() {
@@ -78,37 +70,9 @@ public class Game implements Runnable {
         if(State.getState() != null)
             State.getState().render(g);
 
-        boolean artdraw = true;
-        while(artdraw){
-            k=l*32;
-            j=h*32;
-            g.drawImage(Assets.grass,k,j, null);
-            if(l==40){
-                h++;
-                l=-1;
-            }
-            l++;
-            if(h==23){
-                h=0;
-                artdraw =false;
-            }
-        }
-        g.drawImage(Assets.player, x, y, null);
-        if(x == 1280 - 48 && !job){
-            y++;
-            moob = false;
-        }
-        if(y == 720 - 48){
-            x--;
-            job = true;
-        }
-        if(x == 0 && !moob){
-            y--;
-        }
-        if(y == 0 && x == 0 && !moob) {
-            moob = true;
-            job = false;
-        }
+        g.drawImage(Tiles.getSprites().crop(0, 0, 32, 32), 0, 0, 32, 32, null);
+
+
         //Draw End
         bs.show();
         g.dispose();

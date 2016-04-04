@@ -13,8 +13,6 @@ public class Assets {
         SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/Sprites.png"));
         SpriteSheet sheet2 = new SpriteSheet(ImageLoader.LoadImage("/textures/Sprites2.png"));
 
-        player = sheet2.crop2(1, 2, width2, height2);
-        enemy = sheet2.crop2(4, 1, width2, height2);
         grass = sheet.crop(0, 0, width, height);
         sand = sheet.crop(1, 0, width, height);
         dirt = sheet.crop(2, 0, width, height);
