@@ -49,11 +49,11 @@ public class Tiles {
         }
 
         private static final Tiles tileGrass = new Tiles(0, "Grass", true);
-        private static final Tiles tileSand = new Tiles(1, "Sand", false);
-        private static final Tiles tileDirt = new Tiles(2, "Dirt", false);
-        private static final Tiles tileWater = new Tiles(3, "Water", true);
-        private static final Tiles tileGravel = new Tiles(4, "Gravel", false);
-        private static final Tiles tileSnow = new Tiles(5, "Snow", false);
+        private static final Tiles tileSand = new Tiles(1, "Sand", true);
+        private static final Tiles tileDirt = new Tiles(2, "Dirt", true);
+        private static final Tiles tileWater = new Tiles(3, "Water", false);
+        private static final Tiles tileGravel = new Tiles(4, "Gravel", true);
+        private static final Tiles tileSnow = new Tiles(5, "Snow", true);
         private static final Tiles tileStone = new Tiles(6, "Stone", true);
         private static final Tiles tileTree = new Tiles(7, "Tree", true);
 
