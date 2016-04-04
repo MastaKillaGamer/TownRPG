@@ -6,13 +6,13 @@ import java.io.IOException;
 
 public class ImageLoader {
 
-    public static BufferedImage LoadImage(String path) {
+    public BufferedImage load(String path) {
         try {
-            return ImageIO.read(ImageLoader.class.getResource(path));
+            BufferedImage temp = ImageIO.read(getClass().getResource(path));
+            return temp;
         } catch (IOException e) {
             e.printStackTrace();
-            System.exit(1);
-        }
+    }
         return null;
     }
 }
