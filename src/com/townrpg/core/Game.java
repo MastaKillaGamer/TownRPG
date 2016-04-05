@@ -43,8 +43,8 @@ public class Game implements Runnable {
         display = new Display(title, width, height);
         display.getFrame().addKeyListener(keyManager);
         ImageLoader loader = new ImageLoader();
-        BufferedImage tileSheet = loader.load("tiles.png");
-        BufferedImage charSheet = loader.load("chars.png");
+        BufferedImage tileSheet = loader.load("textures/tiles.png");
+        BufferedImage charSheet = loader.load("textures/chars.png");
         tileSprites = new SpriteSheet(tileSheet);
         charSprites = new SpriteSheet(charSheet);
 
