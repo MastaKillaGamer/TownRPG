@@ -47,7 +47,6 @@ public class Game implements Runnable {
         BufferedImage charSheet = loader.load("textures/chars.png");
         tileSprites = new SpriteSheet(tileSheet);
         charSprites = new SpriteSheet(charSheet);
-
         gameState = new GameState(this);
         menuState = new MenuState(this);
         State.setState(gameState);
