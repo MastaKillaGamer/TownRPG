@@ -12,6 +12,8 @@ import com.townrpg.core.tile.Tiles;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
 public class Game implements Runnable {
 
@@ -39,12 +41,12 @@ public class Game implements Runnable {
 
     }
 
-    private void init() {
+    private void init() throws IOException {
         display = new Display(title, width, height);
         display.getFrame().addKeyListener(keyManager);
         ImageLoader loader = new ImageLoader();
-        BufferedImage tileSheet = loader.load("textures/tiles.png");
-        BufferedImage charSheet = loader.load("textures/chars.png");
+        BufferedImage tileSheet = loader.load("/textures/tiles.png");
+        BufferedImage charSheet = loader.load("/textures/chars.png");
         tileSprites = new SpriteSheet(tileSheet);
         charSprites = new SpriteSheet(charSheet);
         gameState = new GameState(this);
@@ -83,7 +85,11 @@ public class Game implements Runnable {
                 }
 
     public void run(){
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         int fps = setfps;
         double timePerTick = 1000000000 / fps;
