@@ -37,6 +37,6 @@ public class Player extends Character {
 
     @Override
     public void render(Graphics g){
-        g.drawImage(Tiles.getSprites().crop(0, 0, 0, 0), (int) x, (int) y, null);
+        g.drawImage(Tiles.getSprites().crop(1, 1, 1, 1), (int) x, (int) y, null);
     }
 }
