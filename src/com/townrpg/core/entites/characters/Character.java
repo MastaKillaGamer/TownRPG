@@ -5,7 +5,7 @@ import com.townrpg.core.entites.Entity;
 public abstract class Character extends Entity{
 
     public static final int DEFAULT_HEALTH = 100;
-    public static final int DEFAULT_CHARACTER_WIDTH = 48, DEFAULT_CHARACTER_HEIGHT = 48;
+    public static final int DEFAULT_CHARACTER_WIDTH = 32, DEFAULT_CHARACTER_HEIGHT = 32;
     public static final float DEFAULT_SPEED = 3.0f;
 
     protected int health;

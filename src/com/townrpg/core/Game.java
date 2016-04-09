@@ -7,7 +7,6 @@ import com.townrpg.core.inputs.KeyManager;
 import com.townrpg.core.states.GameState;
 import com.townrpg.core.states.MenuState;
 import com.townrpg.core.states.State;
-import com.townrpg.core.tile.Tiles;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -74,8 +73,6 @@ public class Game implements Runnable {
 
         if(State.getState() != null)
             State.getState().render(g);
-
-        g.drawImage(Tiles.getSprites().qcrop("Tree"), 0, 0, 32, 32, null);
 
 
         //Draw End

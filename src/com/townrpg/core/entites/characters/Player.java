@@ -1,7 +1,7 @@
 package com.townrpg.core.entites.characters;
 
 import com.townrpg.core.Game;
-import com.townrpg.core.tile.Tiles;
+import com.townrpg.core.gfx.Assets;
 
 import java.awt.*;
 
@@ -37,6 +37,6 @@ public class Player extends Character {
 
     @Override
     public void render(Graphics g){
-        g.drawImage(Tiles.getSprites().crop(1, 1, 1, 1), (int) x, (int) y, null);
+        g.drawImage(Assets.player, (int) x, (int) y, width, height, null);
     }
 }
