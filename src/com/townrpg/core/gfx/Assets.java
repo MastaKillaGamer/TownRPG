@@ -9,16 +9,17 @@ public class Assets {
     public static BufferedImage player, grass, sand, dirt, water, gravel, snow, stone;
 
     public static void init(){
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sheet.png"));
-
-        player = sheet.crop(0, 0, width, height);
-        grass = sheet.crop(0, 0, width, height);
-        sand = sheet.crop(width, 0, width, height);
-        dirt = sheet.crop(width * 2, 0, width, height);
-        water = sheet.crop(width * 3, height, width, height);
-        gravel = sheet.crop(width * 4, 0, width, height);
-        snow = sheet.crop(width * 5, 0, width, height);
-        stone = sheet.crop(width * 6, 0, width, height);
+        SpriteSheet tileSheet = new SpriteSheet(ImageLoader.loadImage("/textures/tiles.png"));
+        SpriteSheet charSheet = new SpriteSheet(ImageLoader.loadImage("/textures/chars.png"));
+        
+        player = charSheet.crop(0, 0, width, height);
+        grass = tileSheet.crop(0, 0, width, height);
+        sand = tileSheet.crop(width, 0, width, height);
+        dirt = tileSheet.crop(width * 2, 0, width, height);
+        water = tileSheet.crop(width * 3, height, width, height);
+        gravel = tileSheet.crop(width * 4, 0, width, height);
+        snow = tileSheet.crop(width * 5, 0, width, height);
+        stone = tileSheet.crop(width * 6, 0, width, height);
     }
 
 }

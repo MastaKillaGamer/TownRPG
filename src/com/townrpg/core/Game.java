@@ -1,7 +1,7 @@
 package com.townrpg.core;
 
 import com.townrpg.core.display.Display;
-import com.townrpg.core.gfx.ImageLoader;
+import com.townrpg.core.gfx.Assets;
 import com.townrpg.core.gfx.SpriteSheet;
 import com.townrpg.core.inputs.KeyManager;
 import com.townrpg.core.states.GameState;
@@ -10,7 +10,6 @@ import com.townrpg.core.states.State;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 public class Game implements Runnable {
 
@@ -42,11 +41,8 @@ public class Game implements Runnable {
     private void init() {
         display = new Display(title, width, height);
         display.getFrame().addKeyListener(keyManager);
-        ImageLoader loader = new ImageLoader();
-        BufferedImage tileSheet = loader.load("/textures/tiles.png");
-        BufferedImage charSheet = loader.load("/textures/chars.png");
-        tileSprites = new SpriteSheet(tileSheet);
-        charSprites = new SpriteSheet(charSheet);
+        Assets.init();
+
         gameState = new GameState(this);
         menuState = new MenuState(this);
         State.setState(gameState);
@@ -70,10 +66,8 @@ public class Game implements Runnable {
         //Clear Screen
         g.clearRect(0, 0, width, height);
         //Draw
-
         if(State.getState() != null)
             State.getState().render(g);
-
 
         //Draw End
         bs.show();
