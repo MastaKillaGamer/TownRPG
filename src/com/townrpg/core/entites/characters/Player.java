@@ -7,17 +7,15 @@ import java.awt.*;
 
 public class Player extends Character {
 
-    private Game game;
-
     public Player(Game game, float x, float y){
-        super(x, y, Character.DEFAULT_CHARACTER_WIDTH, Character.DEFAULT_CHARACTER_HEIGHT);
-        this.game = game;
+        super(game, x, y, Character.DEFAULT_CHARACTER_WIDTH, Character.DEFAULT_CHARACTER_HEIGHT);
     }
 
     @Override
     public void tick(){
         getInput();
         move();
+        game.getGameCamera().centerOnEntity(this);
 
     }
 
@@ -37,6 +35,6 @@ public class Player extends Character {
 
     @Override
     public void render(Graphics g){
-        g.drawImage(Assets.player, (int) x, (int) y, width, height, null);
+        g.drawImage(Assets.player, (int) (x - game.getGameCamera().getxOffset()), (int) (y - game.getGameCamera().getyOffset()), width, height, null);
     }
 }

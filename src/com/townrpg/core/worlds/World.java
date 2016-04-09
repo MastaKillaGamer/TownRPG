@@ -1,5 +1,6 @@
 package com.townrpg.core.worlds;
 
+import com.townrpg.core.Game;
 import com.townrpg.core.tiles.Tile;
 import com.townrpg.core.utils.Utils;
 
@@ -7,11 +8,13 @@ import java.awt.*;
 
 public class World {
 
+    private Game game;
     private int width, height;
     private int spawnX, spawnY;
     private int[][] tiles;
 
-    public World(String path){
+    public World(Game game, String path){
+        this.game = game;
         loadWorld(path);
     }
 
@@ -22,7 +25,8 @@ public class World {
     public void render(Graphics g){
         for(int y = 0;y < height;y++){
             for(int x = 0;x < width;x++){
-                getTile(x, y).render(g, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+                getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - game.getGameCamera().getxOffset()),
+                        (int) (y * Tile.TILEHEIGHT - game.getGameCamera().getyOffset()));
             }
         }
     }
