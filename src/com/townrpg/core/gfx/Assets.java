@@ -16,7 +16,7 @@ public class Assets {
         grass = tileSheet.crop(0, 0, width, height);
         sand = tileSheet.crop(width, 0, width, height);
         dirt = tileSheet.crop(width * 2, 0, width, height);
-        water = tileSheet.crop(width * 3, height, width, height);
+        water = tileSheet.crop(width * 3, 0, width, height);
         gravel = tileSheet.crop(width * 4, 0, width, height);
         snow = tileSheet.crop(width * 5, 0, width, height);
         stone = tileSheet.crop(width * 6, 0, width, height);
