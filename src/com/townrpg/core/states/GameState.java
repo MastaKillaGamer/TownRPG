@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.nio.file.Watchable;
 
 import com.townrpg.core.Game;
+import com.townrpg.core.Handler;
 import com.townrpg.core.entites.characters.Player;
 import com.townrpg.core.worlds.World;
 
@@ -12,10 +13,11 @@ public class GameState extends State {
     private Player player;
     private World world;
 
-    public GameState(Game game){
-        super(game);
-        player = new Player(game, 100, 100);
-        world = new World(game, "res/saves/save1.save");
+    public GameState(Handler handler){
+        super(handler);
+        world = new World(handler, "res/saves/save1.save");
+        handler.setWorld(world);
+        player = new Player(handler, world.getSpawnX() * 32, world.getSpawnY() * 32);
 
     }
 
