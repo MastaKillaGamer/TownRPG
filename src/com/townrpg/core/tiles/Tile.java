@@ -19,6 +19,7 @@ public class Tile {
     public static final int TILEWIDTH = 32, TILEHEIGHT = 32;
 
     protected BufferedImage texture;
+    protected BufferedImage[] texture2;
     protected final int id;
 
     public Tile(BufferedImage texture, int id){
